@@ -1,0 +1,275 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1540BAEE-551E-4B98-9413-4498303BB0BE}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>StatsAnalyzer</RootNamespace>
+    <AssemblyName>StatsAnalyzer</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accord">
+      <HintPath>..\packages\Accord.2.15.0\lib\net45\Accord.dll</HintPath>
+    </Reference>
+    <Reference Include="Accord.Controls">
+      <HintPath>..\packages\Accord.Controls.2.15.0\lib\net45\Accord.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Accord.MachineLearning">
+      <HintPath>..\packages\Accord.MachineLearning.2.15.0\lib\net45\Accord.MachineLearning.dll</HintPath>
+    </Reference>
+    <Reference Include="Accord.Math">
+      <HintPath>..\packages\Accord.Math.2.15.0\lib\net45\Accord.Math.dll</HintPath>
+    </Reference>
+    <Reference Include="Accord.Statistics">
+      <HintPath>..\packages\Accord.Statistics.2.15.0\lib\net45\Accord.Statistics.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge">
+      <HintPath>..\packages\AForge.2.2.5\lib\AForge.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Math">
+      <HintPath>..\packages\AForge.Math.2.2.5\lib\AForge.Math.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MathNet.Numerics, Version=3.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MathNet.Numerics.3.7.0\lib\net40\MathNet.Numerics.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog">
+      <HintPath>..\packages\NLog.4.0.0\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ZedGraph">
+      <HintPath>..\packages\ZedGraph.5.1.6\lib\net35-Client\ZedGraph.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDataView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDataView.Designer.cs">
+      <DependentUpon>FormDataView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InstanceProgressForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InstanceProgressForm.Designer.cs">
+      <DependentUpon>InstanceProgressForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MachineLearning\ChainValidation.cs" />
+    <Compile Include="MachineLearning\ChainValidationConfiguration.cs" />
+    <Compile Include="MachineLearning\ChainValidationConfigurationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MachineLearning\ChainValidationConfigurationForm.Designer.cs">
+      <DependentUpon>ChainValidationConfigurationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MachineLearning\ChainValidationInstance.cs" />
+    <Compile Include="MachineLearning\CrossValidationResult.cs" />
+    <Compile Include="MachineLearning\CVResultDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MachineLearning\CVResultDialog.Designer.cs">
+      <DependentUpon>CVResultDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MachineLearning\CVResultVoter.cs" />
+    <Compile Include="MachineLearning\KernelSVM.cs" />
+    <Compile Include="MachineLearning\KernelSVMConfiguration.cs" />
+    <Compile Include="MachineLearning\MLComponents.cs" />
+    <Compile Include="MachineLearning\NodeClassification.cs" />
+    <Compile Include="MachineLearning\PCA.cs" />
+    <Compile Include="MachineLearning\PCAConfiguration.cs" />
+    <Compile Include="MachineLearning\SchemeSumPredictions.cs" />
+    <Compile Include="MachineLearning\SchemeMajorityVote.cs" />
+    <Compile Include="Model\GenericAbstractModel.cs" />
+    <Compile Include="Model\SampledModel.cs" />
+    <Compile Include="Model\GenericNode.cs" />
+    <Compile Include="Model\INode.cs" />
+    <Compile Include="Model\Model.cs" />
+    <Compile Include="Model\StaticModel.cs" />
+    <Compile Include="Model\StatisticalModel.cs" />
+    <Compile Include="Model\IModel.cs" />
+    <Compile Include="MatlabExecutionEngine\ApplicationProcess.cs" />
+    <Compile Include="MatlabExecutionEngine\ExecutionEnvironment.cs" />
+    <Compile Include="MatlabExecutionEngine\MatlabApplicationProcess.cs" />
+    <Compile Include="MatlabExecutionEngine\MatlabExecutionEngine.cs" />
+    <Compile Include="MatlabExecutionEngine\ProcessContainer.cs" />
+    <Compile Include="MatlabExecutionEngine\UniqueProcessContainer.cs" />
+    <Compile Include="Analyzer\NodeStats.cs" />
+    <Compile Include="Analyzer\PlotException.cs" />
+    <Compile Include="OptionsDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OptionsDialog.Designer.cs">
+      <DependentUpon>OptionsDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OptionsPCADialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OptionsPCADialog.Designer.cs">
+      <DependentUpon>OptionsPCADialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OptionsSVMDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OptionsSVMDialog.Designer.cs">
+      <DependentUpon>OptionsSVMDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ScatterPlotForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ScatterPlotForm.Designer.cs">
+      <DependentUpon>ScatterPlotForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.cs" />
+    <Compile Include="Analyzer\StatsAnalyzer.cs" />
+    <Compile Include="Utility\Utility.cs" />
+    <Compile Include="VisualizationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VisualizationForm.Designer.cs">
+      <DependentUpon>VisualizationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZedGraphForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZedGraphForm.Designer.cs">
+      <DependentUpon>ZedGraphForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDataView.resx">
+      <DependentUpon>FormDataView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InstanceProgressForm.resx">
+      <DependentUpon>InstanceProgressForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MachineLearning\ChainValidationConfigurationForm.resx">
+      <DependentUpon>ChainValidationConfigurationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MachineLearning\CVResultDialog.resx">
+      <DependentUpon>CVResultDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionsDialog.resx">
+      <DependentUpon>OptionsDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionsPCADialog.resx">
+      <DependentUpon>OptionsPCADialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionsSVMDialog.resx">
+      <DependentUpon>OptionsSVMDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Content Include="License-LGPL.txt" />
+    <Content Include="NLog.config">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="ScatterPlotForm.resx">
+      <DependentUpon>ScatterPlotForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VisualizationForm.resx">
+      <DependentUpon>VisualizationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZedGraphForm.resx">
+      <DependentUpon>ZedGraphForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="NLog.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\QDFGAnalyzer\QDFGProvider.csproj">
+      <Project>{4a695998-c768-4b24-bd7d-50f26f0de0c9}</Project>
+      <Name>QDFGProvider</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="MLApp">
+      <Guid>{C36E46AB-6A81-457B-9F91-A7719A06287F}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

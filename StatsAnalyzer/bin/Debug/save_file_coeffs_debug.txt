@@ -1,0 +1,106 @@
+ public void saveCoefficientsToFile(String filePath, String saveModel, Settings.TIME_MODEL timeModel, String selectedNode)
+        {
+            // The basic set of features
+            List<String> baseFeatureSet = getBaseFeatures();
+            // Set of Features for the fit model
+            List<String> fitFeatureSet = getFitFeatures(saveModel);
+            // Each Coefficient of each Feature of the fit model
+            List<String> coeffFeatureSet = getFitFeatureCoeffs(saveModel);
+
+            // Start with the base feature set
+            List<String> featureSet = baseFeatureSet;
+            // Add the coefficient feature set
+            featureSet.AddRange(coeffFeatureSet);
+
+
+            // Obtain the list of node names
+            List<String> nodeNames = this.getNodeNames();
+
+            // Use StringBuilder to build output
+            StringBuilder sb = new StringBuilder();
+
+            // Append the header line (columns)
+            //sb.Append("Name"); // first column is the name
+            //featureSet.ForEach(feature => sb.AppendLine(";" + feature)); // following columns are dynamic features
+            //sb.AppendLine(";Class"); // last column is the classifier
+            
+
+
+            // Holds stat names and their list of values
+            Dictionary<string, List<Double>> nodeStats = new Dictionary<string, List<double>>();
+
+
+            // For each node (line)
+            foreach (String nodeName in nodeNames)
+            {
+                if (selectedNode == "" || nodeName == selectedNode)
+                {
+
+                    List<String> processedFeatures = new List<String>();
+
+                    // First column is the node name
+                    sb.AppendLine(nodeName);
+
+                    // Obtain node stats, store them in previously defined dictionary
+                    nodeStats = this.getAllStatsForNode(nodeName);
+
+
+                    // For each feature specified in our feature set
+                    foreach (String feature in featureSet)
+                    {
+                        String featureBaseName = feature;
+
+                        if (!isBaseFeature(feature))
+                        {
+                            featureBaseName = getFitFeatureName(feature);
+                        }
+
+                        // If we have valid statistics of this feature for the current node
+                        if (nodeStats.ContainsKey(featureBaseName)) // Append value of each coefficient
+                        {
+                            if (!processedFeatures.Contains(featureBaseName)) // Feature was not processed previously
+                            {
+                                if (isBaseFeature(featureBaseName)) // Process base feature
+                                {
+                                    if (timeModel == Settings.TIME_MODEL.LAST_VALUE)
+                                    {
+                                        sb.AppendLine(";" + nodeStats[featureBaseName].Last().ToString(Settings.DOUBLE_FORMAT));
+                                    }
+                                    else
+                                    {
+                                        nodeStats[featureBaseName].ForEach(timeValue => sb.AppendLine(";" + timeValue.ToString(Settings.DOUBLE_FORMAT)));
+                                    }
+                                }
+
+                                else // Process fit feature
+                                {
+                                    nodeStats[featureBaseName].ForEach(coeffValue => sb.AppendLine(";" + coeffValue.ToString(Settings.DOUBLE_FORMAT)));
+                                }
+
+                                processedFeatures.Add(featureBaseName);
+                            }
+                        }
+                        else // append missing value
+                        {
+                            Console.WriteLine("Node Stats for " + nodeName + ", does not contain stat: " + featureBaseName);
+                            sb.AppendLine(";" + Settings.MISSING_VALUE_IDENTIFIER);
+                        }
+                    }
+
+                    // Add the classifier
+                    StatsAnalyzer.NodeType nodeType = getNodeType(nodeName);
+                    if (nodeType == NodeType.GOODWARE)
+                        sb.Append(";goodware");
+                    else if (nodeType == NodeType.MALWARE)
+                        sb.Append(";malware");
+                    else
+                        sb.Append(";unknown");
+
+                    sb.Append("\n");
+
+
+
+                }
+            }
+            File.WriteAllText(filePath, sb.ToString());
+        }

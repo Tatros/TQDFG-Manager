@@ -1,0 +1,15 @@
+C:\Users\Derp\documents\visual studio 2013\Projects\QDFGGraphManager\QDFGAnalyzer\bin\Debug\NLog.config
+C:\Users\Derp\documents\visual studio 2013\Projects\QDFGGraphManager\QDFGAnalyzer\bin\Debug\QDFGAnalyzer.dll
+C:\Users\Derp\documents\visual studio 2013\Projects\QDFGGraphManager\QDFGAnalyzer\bin\Debug\QDFGAnalyzer.pdb
+C:\Users\Derp\documents\visual studio 2013\Projects\QDFGGraphManager\QDFGAnalyzer\bin\Debug\LibDFTGraph.dll
+C:\Users\Derp\documents\visual studio 2013\Projects\QDFGGraphManager\QDFGAnalyzer\bin\Debug\MathNet.Numerics.dll
+C:\Users\Derp\documents\visual studio 2013\Projects\QDFGGraphManager\QDFGAnalyzer\bin\Debug\NLog.dll
+C:\Users\Derp\documents\visual studio 2013\Projects\QDFGGraphManager\QDFGAnalyzer\bin\Debug\QuickGraph.Data.dll
+C:\Users\Derp\documents\visual studio 2013\Projects\QDFGGraphManager\QDFGAnalyzer\bin\Debug\QuickGraph.dll
+C:\Users\Derp\documents\visual studio 2013\Projects\QDFGGraphManager\QDFGAnalyzer\bin\Debug\QuickGraph.Graphviz.dll
+C:\Users\Derp\documents\visual studio 2013\Projects\QDFGGraphManager\QDFGAnalyzer\bin\Debug\QuickGraph.Serialization.dll
+C:\Users\Derp\documents\visual studio 2013\Projects\QDFGGraphManager\QDFGAnalyzer\bin\Debug\MathNet.Numerics.xml
+C:\Users\Derp\documents\visual studio 2013\Projects\QDFGGraphManager\QDFGAnalyzer\bin\Debug\NLog.xml
+C:\Users\Derp\documents\visual studio 2013\Projects\QDFGGraphManager\QDFGAnalyzer\obj\Debug\QDFGAnalyzer.dll
+C:\Users\Derp\documents\visual studio 2013\Projects\QDFGGraphManager\QDFGAnalyzer\obj\Debug\QDFGAnalyzer.pdb
+C:\Users\Derp\documents\visual studio 2013\Projects\QDFGGraphManager\QDFGAnalyzer\obj\Debug\QDFGAnalyzer.csprojResolveAssemblyReference.cache

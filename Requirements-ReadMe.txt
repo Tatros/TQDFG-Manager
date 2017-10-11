@@ -1,0 +1,11 @@
+Accord.2.15.0
+Accord.Controls.2.15.0
+Accord.MachineLearning.2.15.0
+Accord.Math.2.15.0
+Accord.Statistics.2.15.0
+AForge.2.2.5
+AForge.Math.2.2.5
+EntityFramework.5.0.0
+MathNet.Numerics.3.7.0
+NLog.4.0.0
+ZedGraph.5.1.6
